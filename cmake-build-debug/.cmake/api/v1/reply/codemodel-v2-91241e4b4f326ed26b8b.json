@@ -1,0 +1,129 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "libs1",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"jsonFile" : "directory-libs1-Debug-a2454b483995f165a492.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs1"
+				},
+				{
+					"build" : "libs1/data_structures",
+					"jsonFile" : "directory-libs1.data_structures-Debug-321d7b1d6ef890b55c19.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs1/data_structures",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "libs1/algorithms",
+					"jsonFile" : "directory-libs1.algorithms-Debug-667580fdc1fb28f355f6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs1/algorithms",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "course1",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "algorithms::@bc97e7c06fd290c4b53d",
+					"jsonFile" : "target-algorithms-Debug-68cf34bc015d861e0256.json",
+					"name" : "algorithms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "course1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-course1-Debug-2127fce719999cce2981.json",
+					"name" : "course1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "data_structures::@a5da033003391f354b67",
+					"jsonFile" : "target-data_structures-Debug-ff50b9b49d645d9dc817.json",
+					"name" : "data_structures",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/bob/CLionProjects/course1/cmake-build-debug",
+		"source" : "C:/Users/bob/CLionProjects/course1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
