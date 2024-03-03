@@ -4,12 +4,17 @@
 #include <stdbool.h>
 #include <corecrt.h>
 
+//вспомогательные
+void swap(int *a, int *b);
+int getMinIndex(const int *arr, size_t n);
+int getMaxIndex(const int *arr, size_t n);
 
 typedef struct matrix {
     int **values; // элементы матрицы
     int nRows;    // количество рядов
     int nCols;    // количество столбцов
 } matrix;
+
 typedef struct position {
     int rowIndex;
     int colIndex;
@@ -20,7 +25,6 @@ matrix getMemMatrix(int nRows, int nCols);
 
 //размещает в динамической памяти массив из nMatrices матриц размером nRows на nCols
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
-
 
 //освобождает память, выделенную под хранение матрицы m
 void freeMemMatrix(matrix *m);

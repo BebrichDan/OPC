@@ -3,7 +3,9 @@ project(course1 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(course1 main.c)
+add_executable(course1 main.c
+        libs1/string/string_.c
+        libs1/string/string_.h)
 
 
 

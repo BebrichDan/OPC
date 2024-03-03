@@ -129,7 +129,7 @@ int *atVector(vector *v, size_t index)
         exit(1);
     }
 
-    return &(v->data[index - 1]);
+    return &(v->data[index]);
 }
 
 int *back(vector *v)

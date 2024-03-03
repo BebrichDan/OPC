@@ -208,7 +208,7 @@ ordered_array_set ordered_array_set_intersection(ordered_array_set set1, ordered
 {
     ordered_array_set res = ordered_array_set_create(set1.size);
 
-    for(size_t i = 0; i<set1.size; i++)
+    for(size_t i = 0; i < set1.size; i++)
     {
         if(binarySearch_(set2.data, set2.size, set1.data[i]) < set2.size)
             append_(res.data, &res.size, set1.data[i]);

@@ -55,6 +55,12 @@ build CMakeFiles/course1.dir/main.c.obj: C_COMPILER__course1_unscanned_Debug C$:
   OBJECT_DIR = CMakeFiles\course1.dir
   OBJECT_FILE_DIR = CMakeFiles\course1.dir
 
+build CMakeFiles/course1.dir/libs1/string/string_.c.obj: C_COMPILER__course1_unscanned_Debug C$:/Users/bob/CLionProjects/course1/libs1/string/string_.c || cmake_object_order_depends_target_course1
+  DEP_FILE = CMakeFiles\course1.dir\libs1\string\string_.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\course1.dir
+  OBJECT_FILE_DIR = CMakeFiles\course1.dir\libs1\string
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target course1
@@ -63,7 +69,7 @@ build CMakeFiles/course1.dir/main.c.obj: C_COMPILER__course1_unscanned_Debug C$:
 #############################################
 # Link the executable course1.exe
 
-build course1.exe: C_EXECUTABLE_LINKER__course1_Debug CMakeFiles/course1.dir/main.c.obj | libs1/data_structures/libdata_structures.a libs1/algorithms/libalgorithms.a || libs1/algorithms/libalgorithms.a libs1/data_structures/libdata_structures.a
+build course1.exe: C_EXECUTABLE_LINKER__course1_Debug CMakeFiles/course1.dir/main.c.obj CMakeFiles/course1.dir/libs1/string/string_.c.obj | libs1/data_structures/libdata_structures.a libs1/algorithms/libalgorithms.a || libs1/algorithms/libalgorithms.a libs1/data_structures/libdata_structures.a
   FLAGS = -g
   LINK_LIBRARIES = libs1/data_structures/libdata_structures.a  libs1/algorithms/libalgorithms.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\course1.dir
