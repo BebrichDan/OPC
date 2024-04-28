@@ -22,10 +22,17 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols)
     return ms;
 }
 
+
 void freeMemMatrix(matrix *m)
 {
     for (int i = 0; i < m->nRows; i++)
         free(m->values[i]);
+
+    free(m->values);
+
+    m->values = NULL;
+    m->nRows = 0;
+    m->nCols = 0;
 }
 
 void freeMemMatrices(matrix *ms, int nMatrices)
@@ -283,7 +290,7 @@ matrix createMatrixFromArray(const int *a, int nRows, int nCols)
     return m;
 }
 
-matrix* createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows, int nCols)
+matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows, int nCols)
 {
     matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
     int l = 0;
@@ -293,5 +300,57 @@ matrix* createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows
                 ms[k].values[i][j] = values[l++];
     return ms;
 }
+
+int compareMatrices(matrix m1, matrix m2)
+{
+    if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
+    {
+        return 0;
+    }
+
+    for (int i = 0; i < m1.nRows; i++)
+    {
+        for (int j = 0; j < m1.nCols; j++)
+        {
+            if (m1.values[i][j] != m2.values[i][j])
+            {
+                return 0; // Values at position (i, j) are different
+            }
+        }
+    }
+
+    return 1; // Matrices are equal
+}
+
+
+void assertMatrix(matrix expected, matrix got, char const *fileName, char const *funcName, int line)
+{
+    if (!compareMatrices(expected, got))
+    {
+        fprintf(stderr, "File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "Expected matrix:\n");
+        outputMatrix(expected);;
+        fprintf(stderr, "Got matrix:\n");
+        outputMatrix(got);
+    }
+    else
+    {
+        fprintf(stderr, "%s - OK\n", funcName);
+    }
+}
+
+void setMatrixValues(matrix *mat, int *matrixValues, int n) {
+    int index = 0;
+    for (int i = 0; i < mat->nRows; i++) {
+        for (int j = 0; j < mat->nCols; j++) {
+            if (index < n) {
+                mat->values[i][j] = matrixValues[index];
+                index++;
+            }
+        }
+    }
+}
+
 
 

@@ -1,0 +1,89 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "data_structures",
+					"jsonFile" : "directory-data_structures-Debug-bfcb40d9af3077369835.json",
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "data_structures",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "algorithms",
+					"jsonFile" : "directory-algorithms-Debug-66cfcee42448d1569f95.json",
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "algorithms",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "Project",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "algorithms::@c71d345dacd67b1639ba",
+					"jsonFile" : "target-algorithms-Debug-ba94abf200f075ee184b.json",
+					"name" : "algorithms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "data_structures::@279bcb8fb26d85f9b6f1",
+					"jsonFile" : "target-data_structures-Debug-e5300eb9c5526187a619.json",
+					"name" : "data_structures",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/bob/CLionProjects/course1/libs1/cmake-build-debug",
+		"source" : "C:/Users/bob/CLionProjects/course1/libs1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

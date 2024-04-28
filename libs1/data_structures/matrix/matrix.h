@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <corecrt.h>
+#define ASSERT_MATRIX(expected, got) assertMatrix(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
 //вспомогательные
 void swap(int *a, int *b);
@@ -96,5 +97,12 @@ matrix createMatrixFromArray(const int *a, int nRows, int nCols);
 //возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных
 //в динамической памяти, построенных из элементов массива a
 matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows, int nCols);
+
+//
+void assertMatrix(matrix expected, matrix got, char const *fileName, char const *funcName, int line);
+
+//принимает массив значений матрицы и их количество как параметры и
+// записывает значения из переданного массива в матрицу
+void setMatrixValues(matrix *mat, int *matrixValues, int n);
 
 #endif
