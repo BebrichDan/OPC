@@ -1,19 +1,14 @@
-#ifndef INC_MATRIX_H
-#define INC_MATRIX_H
+#ifndef LAB_MATRIX_H
+#define LAB_MATRIX_H
 
-#include <stdbool.h>
-#include <corecrt.h>
-#define ASSERT_MATRIX(expected, got) assertMatrix(expected, got, __FILE__, __FUNCTION__, __LINE__)
-
-//вспомогательные
-void swap(int *a, int *b);
-int getMinIndex(const int *arr, size_t n);
-int getMaxIndex(const int *arr, size_t n);
+# include <stdint.h>
+# include <stdbool.h>
+# include <assert.h>
 
 typedef struct matrix {
     int **values; // элементы матрицы
-    int nRows;    // количество рядов
-    int nCols;    // количество столбцов
+    int nRows; // количество рядов
+    int nCols; // количество столбцов
 } matrix;
 
 typedef struct position {
@@ -21,88 +16,114 @@ typedef struct position {
     int colIndex;
 } position;
 
-//размещает в динамической памяти матрицу размером nRows на nCols
 matrix getMemMatrix(int nRows, int nCols);
 
-//размещает в динамической памяти массив из nMatrices матриц размером nRows на nCols
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
 
-//освобождает память, выделенную под хранение матрицы m
 void freeMemMatrix(matrix *m);
 
-//освобождает память, выделенную под хранение массива ms из nMatrices матриц
 void freeMemMatrices(matrix *ms, int nMatrices);
 
-//ввод матрицы m
 void inputMatrix(matrix *m);
 
-//ввод массива из nMatrices матриц, хранящейся по адресу ms
-void inputMatrices(matrix *ms, int nMatrices);
-
-//вывод матрицы m
 void outputMatrix(matrix m);
 
-//вывод массива из nMatrices матриц, хранящейся по адресу ms.
+void outputMatrixSum(matrix m, bool showSum);
+
+void inputMatrices(matrix *ms, int nMatrices);
+
 void outputMatrices(matrix *ms, int nMatrices);
 
-//обмен строк с порядковыми номерами i1 и i2 в матрице m
 void swapRows(matrix m, int i1, int i2);
 
-//обмен колонок с порядковыми номерами j1 и j2 в матрице m
 void swapColumns(matrix m, int j1, int j2);
 
-//возвращает сумму всех элементов массива а, длинны n
-int getSum(int *a, int n);
+long long getSum(int *a, int n);
+int getSumCol(int **values, int nRows, int n);
 
-//выполняет сортировку вставками строк матрицы m по неубыванию
-//значения функции criteria применяемой для строк
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int));
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int));
+void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int));
+void insertionSortBySumMatrixInt(int *sums, matrix *ms, int n);
 
-//выполняет сортировку выбором столбцов матрицы m по
-//неубыванию значения функции criteria применяемой для столбцов
-void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int));
-
-//возвращает значение ’истина’, если
-//матрица m является квадратной, ложь – в противном случае
 bool isSquareMatrix(matrix *m);
 
-//возвращает значение ’истина’,
-//если матрицы m1 и m2 равны, ложь – в противном случае
 bool areTwoMatricesEqual(matrix *m1, matrix *m2);
 
-//возвращает значение ’истина’, если матрица
-//m является единичной, ложь – в противном случае
 bool isEMatrix(matrix *m);
 
-//возвращает значение ’истина’,
-//если матрица m является симметричной, ложь – в противном случае
 bool isSymmetricMatrix(matrix *m);
 
-//транспонирует квадратную матрицу m
 void transposeSquareMatrix(matrix *m);
 
-//транспонирует матрицу m
-matrix transposeMatrix(matrix *m);
+void transposeMatrix(matrix *m);
 
-//возвращает позицию минимального элемента матрицы m
 position getMinValuePos(matrix m);
 
-//возвращает позицию максимального элемента матрицы m
 position getMaxValuePos(matrix m);
 
-//tests
-//возвращает матрицу размера nRows на nCols, построенную из элементов массива a
-matrix createMatrixFromArray(const int *a, int nRows, int nCols);
+matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols);
 
-//возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных
-//в динамической памяти, построенных из элементов массива a
-matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows, int nCols);
+matrix *createArrayOfMatrixFromArray(const int *values,size_t nMatrices, size_t nRows, size_t nCols);
 
-//
-void assertMatrix(matrix expected, matrix got, char const *fileName, char const *funcName, int line);
+//=============================================================================================================
 
-//принимает массив значений матрицы и их количество как параметры и
-// записывает значения из переданного массива в матрицу
-void setMatrixValues(matrix *mat, int *matrixValues, int n);
+void replaceMinMax(matrix m);
 
-#endif
+int getMax(int *a, int n);
+void sortRowsByMinElement(matrix m);
+
+int getMin(int *a, int n);
+void sortColsByMinElement(matrix m);
+
+matrix mulMatrices(matrix m1, matrix m2);
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+bool isUnique(long long *a, int n);
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+matrix createIdentityMatrix(size_t nRows, size_t nCols);
+
+int max(int a, int b);
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
+int getMinInArea(matrix m, matrix m_area);
+
+float getDistance(int *a, int n);
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+void sortByDistances(matrix m);
+
+int cmp_long_long(const void *pa, const void *pb);
+int countNUnique(long long *a, int n);
+int countEqClassesByRowsSum(matrix m);
+
+int getNSpecialElement(matrix m);
+
+position getLeftMin(matrix m);
+void swapPenultimateRow(matrix m, int n);
+
+bool isNonDescendingSorted(int *a, int n);
+bool hasAllNonDescendingRows(matrix m);
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+int countValues(const int *a, int n, int value);
+int countZeroRows(matrix m);
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
+
+int getMatrixNorma(matrix m);
+void printMatrixWithMinNorma(matrix *ms, int nMatrix);
+
+int min2(int a, int b);
+int getNSpecialElement2(matrix m);
+
+double getScalarProduct(int *a, int *b, int n);
+double getVectorLength(int *a, int n);
+double getCosine(int *a, int *b, int n);
+int getVectorIndexWithMaxAngle(matrix m, int *b);
+
+long long getScalarProductRowAndCol(matrix m, int i, int j);
+long long getSpecialScalarProduct(matrix m, int n);
+
+void swap_matrix(int *a, int *b, matrix *m, int col1, int col2);
+
+#endif //LAB_MATRIX_H

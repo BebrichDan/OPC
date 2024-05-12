@@ -1,7 +1,7 @@
-#ifndef INC_ARRAY_H
-#define INC_ARRAY_H
+# ifndef INC_ARRAY_H
+# define INC_ARRAY_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 // ввод массива data размера n
 void inputArray_(int *a, size_t n);
@@ -14,7 +14,7 @@ void outputArray_(const int *a, size_t n);
 size_t linearSearch_(const int *a, const size_t n, int x);
 
 // возвращает позицию вхождения элемента x
-// в отсортированном массиве a размера n при его наличии, иначе - n
+// в отсортированном массиве a размера n при его наличии, иначе - SIZE_MAX
 size_t binarySearch_(const int *a, const size_t n, int x);
 
 // возвращает позицию первого элемента равного или большего x
@@ -24,10 +24,11 @@ size_t binarySearchMoreOrEqual_(const int *a, const size_t n, int x);
 
 // вставка элемента со значением value
 // в массив data размера n на позицию pos
-void insert_(int *a, size_t *n, size_t pos, int value);
-
+// void insert_ ( int *a, size_t *n, size_t pos , int value );
 // добавление элемента value в конец массива data размера n
 void append_(int *a, size_t *n, int value);
+
+void insert_(int *const a, size_t *const n, const size_t pos, const int value);
 
 // удаление из массива data размера n элемента на позиции pos
 // с сохранением порядка оставшихся элементов
@@ -37,7 +38,6 @@ void deleteByPosSaveOrder_(int *a, size_t *n, size_t pos);
 // без сохранения порядка оставшихся элементов
 // размер массива data уменьшается на единицу
 void deleteByPosUnsaveOrder_(int *a, size_t *n, size_t pos);
-
 
 // возвращает значение ’истина’ если все элементы
 // массива data размера n соответствует функции-предикату predicate
@@ -63,10 +63,4 @@ int countIf_(const int *a, size_t n, int (*predicate )(int));
 // массива
 void deleteIf_(int *a, size_t *n, int (*deletePredicate )(int));
 
-// функция быстрой сортировки
-void quickSort(int *a, int left, int right);
-
-// функция для разделения массива на две части
-int split(int *a, int left, int right, int x);
-
-#endif
+# endif

@@ -1,3 +1,4 @@
-add_library(string_.c
-        testString.h
-        testString.c)
+add_library(string
+        tasks/string_.c
+        string_test.c
+        string_test.h)
